@@ -20,7 +20,7 @@ function App() {
       setLoading(true);
 
       const response = await axios.post(
-        "https://ai-api-debugger-backend.onrender.com/analyze",
+        "https://ai-api-debugger-jrmm.onrender.com/analyze",
         {
           api_name: apiName,
           error_message: errorMessage,
