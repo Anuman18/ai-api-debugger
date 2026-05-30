@@ -10,33 +10,39 @@ client = OpenAI(
 
 def generate_ai_explanation(error_message, category):
 
-    prompt = f"""
-    You are an expert backend engineer.
+    try:
 
-    Analyze this API error.
+        prompt = f"""
+        You are an expert backend engineer.
 
-    Error Message:
-    {error_message}
+        Analyze this API error.
 
-    Detected Category:
-    {category}
+        Error Message:
+        {error_message}
 
-    Explain:
-    1. Why this error happens
-    2. How to fix it
-    3. Best practices to avoid it
+        Detected Category:
+        {category}
 
-    Keep response concise and technical.
-    """
+        Explain:
+        1. Why this error happens
+        2. How to fix it
+        3. Best practices to avoid it
 
-    response = client.chat.completions.create(
-        model="gpt-4.1-mini",
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
+        Keep response concise and technical.
+        """
 
-    return response.choices[0].message.content
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
+        )
+
+        return response.choices[0].message.content
+
+    except Exception as e:
+
+        return f"AI analysis temporarily unavailable: {str(e)}"
