@@ -1,61 +1,133 @@
 # AI API Failure Debugger
 
-An AI-powered developer tool that analyzes API failures, detects probable causes, calculates confidence scores, and generates debugging insights using FastAPI, React, PostgreSQL, and OpenAI.
+An AI-powered developer tool that analyzes API failures, detects probable root causes, calculates confidence scores, and generates intelligent debugging insights using FastAPI, React, PostgreSQL, and OpenAI.
 
 ---
 
-# Features
+## Live Demo
 
-- AI-powered API error analysis
-- Smart error pattern detection
-- Confidence score calculation
-- Root cause identification
-- Suggested debugging solutions
-- PostgreSQL database integration
-- Modern dashboard UI
-- FastAPI backend architecture
-- React frontend with Tailwind CSS
+### Frontend
+
+https://ai-api-debugger-nu.vercel.app/
+
+### Backend API Docs
+
+https://ai-api-debugger-jrmm.onrender.com/docs
 
 ---
 
-# Tech Stack
+## Features
 
-## Frontend
-- React
-- Vite
-- Tailwind CSS
-- Axios
-
-## Backend
-- FastAPI
-- Python
-- SQLAlchemy
-- PostgreSQL
-
-## AI
-- OpenAI API
+* AI-powered API error analysis
+* Intelligent error pattern detection
+* Confidence score calculation
+* Root cause identification
+* Suggested debugging solutions
+* OpenAI-powered debugging explanations
+* PostgreSQL database integration
+* Modern dashboard UI
+* FastAPI backend architecture
+* Cloud deployment with Render, Neon, and Vercel
 
 ---
 
-# Project Architecture
+## Dashboard Preview
 
-Frontend (React)
-↓
+> Add screenshots here
+
+### Main Dashboard
+
+```text
+assets/dashboard.png
+```
+
+### Analysis Result
+
+```text
+assets/result.png
+```
+
+### Swagger API Documentation
+
+```text
+assets/swagger.png
+```
+
+---
+
+## Problem Statement
+
+Developers often spend significant time debugging API failures such as authentication errors, rate limiting issues, timeout problems, and server-side failures.
+
+Traditional debugging requires manually analyzing logs, documentation, and error messages.
+
+This project provides an AI-powered debugging assistant that automatically analyzes API failures, identifies probable causes, calculates confidence scores, and suggests troubleshooting strategies.
+
+---
+
+## Solution
+
+The system combines:
+
+* Rule-based error classification
+* Pattern matching engine
+* Confidence scoring system
+* AI-enhanced debugging explanations
+* Persistent PostgreSQL storage
+
+to create a developer-focused debugging platform.
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* Axios
+
+### Backend
+
+* FastAPI
+* Python
+* SQLAlchemy
+* PostgreSQL
+
+### AI Integration
+
+* OpenAI API
+
+### Deployment
+
+* Vercel
+* Render
+* Neon PostgreSQL
+
+---
+
+## System Architecture
+
+```text
+React Frontend
+       ↓
 FastAPI Backend
-↓
+       ↓
 Validation Layer
-↓
+       ↓
 Pattern Detection Engine
-↓
+       ↓
 Confidence Scoring System
-↓
-AI Explanation Engine
-↓
+       ↓
+OpenAI API
+       ↓
 PostgreSQL Database
+```
 
 ---
 
-# Folder Structure
+## Project Structure
 
 ```bash
 ai-api-debugger/
@@ -65,8 +137,8 @@ ai-api-debugger/
 │   ├── routes/
 │   ├── services/
 │   ├── utils/
-│   ├── main.py
 │   ├── database.py
+│   ├── main.py
 │   └── requirements.txt
 │
 ├── frontend/
@@ -79,119 +151,17 @@ ai-api-debugger/
 
 ---
 
-# Installation
+## API Endpoint
 
-## Clone Repository
+### Analyze Error
 
-```bash
-git clone <your-repo-url>
+**POST**
+
+```http
+/analyze
 ```
 
----
-
-# Backend Setup
-
-```bash
-cd backend
-```
-
-Create virtual environment:
-
-```bash
-python3 -m venv venv
-```
-
-Activate virtual environment:
-
-## Mac/Linux
-
-```bash
-source venv/bin/activate
-```
-
-## Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# PostgreSQL Setup
-
-Create database:
-
-```sql
-CREATE DATABASE api_debugger;
-```
-
-Update database connection inside:
-
-```bash
-backend/database.py
-```
-
-Example:
-
-```python
-DATABASE_URL = "postgresql://username@localhost/api_debugger"
-```
-
----
-
-# Environment Variables
-
-Create `.env` file inside backend:
-
-```env
-OPENAI_API_KEY=your_openai_api_key
-```
-
----
-
-# Run Backend
-
-```bash
-uvicorn main:app --reload
-```
-
-Backend runs on:
-
-```bash
-http://127.0.0.1:8000
-```
-
----
-
-# Frontend Setup
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend runs on:
-
-```bash
-http://localhost:5173
-```
-
----
-
-# API Endpoint
-
-## Analyze API Error
-
-### POST `/analyze`
-
-Request:
+### Request
 
 ```json
 {
@@ -200,7 +170,7 @@ Request:
 }
 ```
 
-Response:
+### Response
 
 ```json
 {
@@ -208,42 +178,81 @@ Response:
   "cause": "Too many requests in short time",
   "solutions": [
     "Use retry logic",
-    "Reduce request frequency"
+    "Reduce request frequency",
+    "Add exponential backoff"
   ],
   "confidence_score": "75%",
-  "ai_explanation": "..."
+  "ai_explanation": "Detailed AI-generated debugging explanation..."
 }
 ```
 
 ---
 
-# Future Improvements
+## Key Engineering Concepts Implemented
 
-- Error history dashboard
-- Authentication system
-- Docker deployment
-- Advanced AI reasoning
-- Log file upload support
-- Multi-model AI support
+* REST API Development
+* Backend Architecture Design
+* Layered Service Structure
+* Rule-Based Classification Engine
+* AI Integration Workflows
+* PostgreSQL Database Management
+* ORM with SQLAlchemy
+* Cloud Deployment
+* Environment Variable Management
+* CORS Handling
+* Production Debugging
 
 ---
 
-# Learning Outcomes
+## Challenges Solved
+
+* API error classification
+* OpenAI integration
+* Database persistence
+* Cross-origin request handling (CORS)
+* Cloud deployment configuration
+* Environment variable management
+* Production debugging
+
+---
+
+## Future Improvements
+
+* Authentication System
+* User Accounts
+* Error History Dashboard
+* Log File Upload Support
+* Docker Deployment
+* Advanced AI Reasoning
+* Analytics Dashboard
+* Multi-Model AI Support
+
+---
+
+## Learning Outcomes
 
 This project helped in understanding:
 
-- REST API development
-- Backend architecture
-- AI integration workflows
-- PostgreSQL database management
-- ORM with SQLAlchemy
-- React frontend development
-- Prompt engineering
-- Error handling systems
-- Full stack system design
+* Full Stack Development
+* Backend Engineering
+* FastAPI Development
+* React Frontend Architecture
+* PostgreSQL Integration
+* AI-Powered Applications
+* Cloud Deployment
+* System Design Fundamentals
+* Production-Level Debugging
 
 ---
 
-# Author
+## Author
 
-Anuman Shailesh Modi
+### Anuman Shailesh Modi
+
+Artificial Intelligence & Data Science Student
+
+GitHub:
+https://github.com/Anuman18
+
+LinkedIn:
+Add your LinkedIn profile link here
